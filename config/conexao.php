@@ -1,8 +1,8 @@
 <?php
-define ("DB_HOST","localhost");
-define ("DB_NAME","sistema_analise");
-define ("DB_USER","root");
-define ("DB_PASS","");
+define ("DB_HOST", getenv('DB_HOST'));
+define ("DB_NAME", getenv('DB_NAME'));
+define ("DB_USER", getenv('DB_USER'));
+define ("DB_PASS", getenv('DB_PASS'));
 
 try {
     $dns = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
