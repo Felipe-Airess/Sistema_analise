@@ -5,7 +5,7 @@ define ("DB_USER", getenv('DB_USER'));
 define ("DB_PASS", getenv('DB_PASSWORD'));
 
 try {
-    $dns = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
+    $dns = "mysql:host=".DB_HOST.";port=3306;dbname=".DB_NAME.";charset=utf8mb4";
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
