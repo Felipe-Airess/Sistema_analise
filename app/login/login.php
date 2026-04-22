@@ -2,6 +2,38 @@
 session_start();
 require_once("../../config/conexao.php");
 
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $usuario = $_POST['usuario'];
+    $senha = $_POST['senha'];
+    
+    $sql = "SELECT u.*, e.nome AS empresa_nome, e.id AS empresa_id 
+    FROM usuarios AS u 
+    INNER JOIN empresas AS e ON u.empresa_id = e.id
+    WHERE u.nome = ?";
+   
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$usuario]);
+        $user_data = $stmt->fetch();
+    } catch (\PDOException $e) {
+        $user_data = false;
+    }
+
+    if(isset($user_data) && $user_data && password_verify($senha, $user_data['senha'])){
+        $_SESSION['usuario_id'] = $user_data['id'];
+        $_SESSION['usuario_nome'] = $user_data['nome'];
+        $_SESSION['empresa_id'] = $user_data['empresa_id'];
+        $_SESSION['empresa_nome'] = $user_data['empresa_nome'];
+        $_SESSION['logado'] = true;
+        $_SESSION['mensagem'] = "Login realizado com sucesso.";
+        $_SESSION['mensagem_tipo'] = "success";
+        header("Location:../gerenciador/gerenciador.php");
+        exit();
+    } else {
+        $_SESSION['mensagem'] = "Usuário ou senha inválidos.";
+        $_SESSION['mensagem_tipo'] = "error";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -47,47 +79,7 @@ require_once("../../config/conexao.php");
 </head>
 <body class="flex items-center justify-center bg-gradient-to-r from-blue-400 to-[#004b8d] min-h-screen">
 
-    <?php
-    
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $usuario = $_POST['usuario'];
-        $senha = $_POST['senha'];
-        
-        $sql = "SELECT u.*, e.nome AS empresa_nome ,e.id AS empresa_id 
-        FROM usuarios AS u 
-        INNER JOIN empresas AS e ON u.empresa_id = e.id
-        WHERE u.nome = ?";
-       
-        try {
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$usuario]);
-            $user_data = $stmt->fetch();
-        } catch (\PDOException $e) {
-           
-            $erro = "Erro de banco de dados: " . $e->getMessage();
-            $user_data = false;
-        }
-
-        if(isset($user_data) && $user_data && password_verify($senha, $user_data['senha'])){
-            
-            $_SESSION['usuario_id'] = $user_data['id'];
-            $_SESSION['usuario_nome'] = $user_data['nome'];
-            $_SESSION['empresa_id'] = $user_data['empresa_id'];
-            $_SESSION['empresa_nome'] = $user_data['empresa_nome'];
-            $_SESSION['logado'] = true;
-            $_SESSION['mensagem'] = "Login realizado com sucesso.";
-            $_SESSION['mensagem_tipo'] = "success";
-            header("Location:../gerenciador/gerenciador.php");
-            exit();
-        } else {
-            $_SESSION['mensagem'] = "Usuário ou senha inválidos.";
-            $_SESSION['mensagem_tipo'] = "error";
-           
-        }
-    }
-    
-    ?>
-
+   
     
     <div class="scrol w-full max-w-md p-8 bg-white shadow-xl rounded-xl border border-gray-200">
         
