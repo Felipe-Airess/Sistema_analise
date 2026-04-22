@@ -4,12 +4,42 @@ require_once("../../config/conexao.php");
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $cnpj = $_POST['cnpj'];
+    $cnpj = preg_replace('/\D/', '', $_POST['cnpj']); // Remove caracteres não numéricos
     $nome = $_POST['nome'];
-    $telefone = $_POST['telefone'];
+    $telefone = preg_replace('/\D/', '', $_POST['telefone']); // Remove caracteres não numéricos
     $email = $_POST['email'];
     $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
+    
+    // Validações
+    $erros = [];
+    
+    if (strlen($cnpj) !== 14) {
+        $erros[] = "CNPJ deve conter 14 dígitos.";
+    }
+    
+    if (strlen($telefone) !== 11) {
+        $erros[] = "Telefone deve conter 11 dígitos.";
+    }
+    
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erros[] = "Email inválido.";
+    }
+    
+    if (strlen($usuario) < 3) {
+        $erros[] = "Nome de usuário deve ter no mínimo 3 caracteres.";
+    }
+    
+    if (strlen($senha) < 6) {
+        $erros[] = "Senha deve ter no mínimo 6 caracteres.";
+    }
+    
+    if (!empty($erros)) {
+        $_SESSION['mensagem'] = implode(' ', $erros);
+        $_SESSION['mensagem_tipo'] = "error";
+        header('Location: cadastro.php');
+        exit;
+    }
     
     try {
         $pdo->beginTransaction();
@@ -29,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $_SESSION['mensagem'] = "Cadastro realizado com sucesso! Você já pode fazer login.";
         $_SESSION['mensagem_tipo'] = "success";
+        header('Location: ../login/login.php');
+        exit;
         
     } catch (Exception $e) {
         $pdo->rollBack();
@@ -38,10 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
              $_SESSION['mensagem_tipo'] = "error";
 
         } else {
-             $_SESSION['mensagem'] = "Erro: CNPJ, Email ou Usuário já cadastrado." . $e->getMessage();
+             $_SESSION['mensagem'] = "Erro: CNPJ, Email ou Usuário já cadastrado.";
              $_SESSION['mensagem_tipo'] = "error";
         }
-        $tipo_feedback = 'erro';
     }
 } 
 ?>
@@ -59,6 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="../assets/js/masks.js"></script>
     
     <style>
         body {
