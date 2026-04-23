@@ -182,28 +182,35 @@ $total_despesas = $stmt->fetchColumn() ?? 0;
                 </div>
             </nav>
 
-            <nav class="sm:hidden flex flex-row items-center w-full overflow-x-auto text-sm text-white font-['Poppins']">
-                <a href="gerenciador.php" class="p-2 whitespace-nowrap flex items-center gap-1 <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'bg-white/20 dark:bg-gray-800' : 'hover:bg-white/10 dark:hover:bg-gray-800' ?>">
-                    <i class="fas fa-home text-xs"></i> Inicio
-                </a>
-                <a href="../gerenciador/despesas/gerenciar_despesas.php" class="p-2 whitespace-nowrap flex items-center gap-1 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'bg-white/20 dark:bg-gray-800' : 'hover:bg-white/10 dark:hover:bg-gray-800' ?>">
-                    <i class="fas fa-arrow-down text-xs"></i> Despesas
-                </a>
-                <a href="../gerenciador/receitas/gerenciar_receitas.php" class="p-2 whitespace-nowrap flex items-center gap-1 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'bg-white/20 dark:bg-gray-800' : 'hover:bg-white/10 dark:hover:bg-gray-800' ?>">
-                    <i class="fas fa-arrow-up text-xs"></i> Receitas
-                </a>
-                <a href="../gerenciador/categorias/gerenciar_categorias.php" class="p-2 whitespace-nowrap flex items-center gap-1 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'bg-white/20 dark:bg-gray-800' : 'hover:bg-white/10 dark:hover:bg-gray-800' ?>">
-                    <i class="fas fa-tags text-xs"></i> Categorias
-                </a>
-                <a href="/metas/gerenciar_metas.php" class="p-2 whitespace-nowrap flex items-center gap-1 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'bg-white/20 dark:bg-gray-800' : 'hover:bg-white/10 dark:hover:bg-gray-800' ?>">
-                    <i class="fas fa-bullseye text-xs"></i> Metas
-                </a>
-                <button id="openSettingsModalSm" class="p-2 whitespace-nowrap flex items-center gap-1 hover:bg-white/10 dark:hover:bg-gray-800">
-                    <i class="fas fa-cog text-xs"></i> Configurações
+            <nav class="sm:hidden flex flex-row items-center justify-between w-full text-sm text-white font-['Poppins'] px-4 relative">
+                <button id="menuToggleMobile" class="p-2 flex items-center gap-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg transition-all z-50">
+                    <i class="fas fa-bars text-lg"></i>
+                    <span class="text-sm">Menu</span>
                 </button>
-                <a href="../login/logout.php" class="p-2 whitespace-nowrap flex items-center gap-1 hover:bg-white/10 dark:hover:bg-gray-800">
-                    <i class="fas fa-sign-out-alt text-xs"></i> Sair
-                </a>
+                
+                <div id="mobileMenuDropdown" class="hidden absolute top-full left-0 right-0 bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg z-40 flex flex-col min-w-full">
+                    <a href="../gerenciador.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                        <i class="fas fa-home"></i> Inicio
+                    </a>
+                    <a href="gerenciar_despesas.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                        <i class="fas fa-arrow-down"></i> Despesas
+                    </a>
+                    <a href="../receitas/gerenciar_receitas.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                        <i class="fas fa-arrow-up"></i> Receitas
+                    </a>
+                    <a href="../categorias/gerenciar_categorias.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                        <i class="fas fa-tags"></i> Categorias
+                    </a>
+                    <a href="../metas/gerenciar_metas.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                        <i class="fas fa-bullseye"></i> Metas
+                    </a>
+                    <button id="openSettingsModalSm" class="p-3 flex items-center gap-2 border-b border-white/10 hover:bg-white/10 text-left w-full">
+                        <i class="fas fa-cog"></i> Configurações
+                    </button>
+                    <a href="../../login/logout.php" class="p-3 flex items-center gap-2 hover:bg-red-600">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </a>
+                </div>
             </nav>
         </aside>
 
@@ -409,6 +416,32 @@ $total_despesas = $stmt->fetchColumn() ?? 0;
                 ?>
             }
         });
+
+    // Menu Mobile Toggle
+    const menuToggleMobile = document.getElementById('menuToggleMobile');
+    const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+
+    if (menuToggleMobile) {
+        menuToggleMobile.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileMenuDropdown.classList.toggle('hidden');
+        });
+
+        // Fechar menu ao clicar em um link
+        const menuLinks = mobileMenuDropdown.querySelectorAll('a, button');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuDropdown.classList.add('hidden');
+            });
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuDropdown.contains(e.target) && !menuToggleMobile.contains(e.target)) {
+                mobileMenuDropdown.classList.add('hidden');
+            }
+        });
+    }
     </script>
 </body>
 
