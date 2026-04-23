@@ -113,22 +113,21 @@ $total_receitas = $stmt->fetchColumn() ?? 0;
 
 <body class="flex min-h-screen flex-col bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
     <main class="flex flex-row gap-6 max-h-screen max-sm:flex-col">
-        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md min-h-screen flex flex-col transition-colors duration-500">
+        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md min-h-screen flex flex-col max-sm:hidden transition-colors duration-500">
             <div class="py-6 px-6 justify-start flex items-center flex-row">
                 <div class="rounded-full py-2 px-1 flex items-center justify-center">
                     <i class="fas fa-user-circle text-white text-2xl"></i>
                 </div>
                 <h2 class="font-['Poppins'] text-lg text-white font-regular ml-2">
-                    
                     <?= htmlspecialchars($empresa_nome); ?>
                 </h2>
             </div>
 
-            <nav class="flex flex-col pt-4 pb-12 h-full items-center overflow-y-auto justify-between max-sm:hidden">
+            <nav class="flex flex-col pt-4 pb-12 h-full items-center overflow-y-auto justify-between">
                 <div class="pb-4 gap-8 flex px-4 items-center w-full">
                     <ul class="flex flex-col gap-4 w-full">
                         <li>
-                            <a href="../gerenciador.php"
+                            <a href="gerenciador.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] hover:bg-white/10 dark:hover:bg-gray-800 w-full p-2 rounded-lg transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-home w-5 h-5"></i>
                                 Inicio
@@ -136,7 +135,7 @@ $total_receitas = $stmt->fetchColumn() ?? 0;
                         </li>
 
                         <li>
-                            <a href="../despesas/gerenciar_despesas.php"
+                            <a href="../gerenciador/despesas/gerenciar_despesas.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-arrow-down w-5 h-5"></i>
                                 Despesas
@@ -144,7 +143,7 @@ $total_receitas = $stmt->fetchColumn() ?? 0;
                         </li>
 
                         <li>
-                            <a href="gerenciar_receitas.php"
+                            <a href="../gerenciador/receitas/gerenciar_receitas.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-arrow-up w-5 h-5"></i>
                                 Receitas
@@ -152,7 +151,7 @@ $total_receitas = $stmt->fetchColumn() ?? 0;
                         </li>
 
                         <li>
-                            <a href="../categorias/gerenciar_categorias.php"
+                            <a href="../gerenciador/categorias/gerenciar_categorias.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-tags w-5 h-5"></i>
                                 Categorias
@@ -160,7 +159,7 @@ $total_receitas = $stmt->fetchColumn() ?? 0;
                         </li>
 
                         <li>
-                            <a href="../metas/gerenciar_metas.php"
+                            <a href="../gerenciador/metas/gerenciar_metas.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-bullseye w-5 h-5"></i>
                                 Metas
@@ -178,15 +177,13 @@ $total_receitas = $stmt->fetchColumn() ?? 0;
                     </ul>
                 </div>
                 <div class="mt-4 p-4 flex justify-center rounded-lg ">
-                    <a href="../../login/logout.php"
+                    <a href="../login/logout.php"
                         class="flex items-center gap-2 text-white bg-white/10 hover:bg-white/5 dark:hover:bg-gray-800/50 px-8 py-2 rounded-lg font-['Poppins'] transition-all">
                         <i class="fas fa-sign-out-alt"></i>
                         Sair
                     </a>
                 </div>
             </nav>
-
-            
         </aside>
 
         

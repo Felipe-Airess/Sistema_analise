@@ -199,18 +199,17 @@ foreach ($dados_trimestrais as $trimestre) {
 
     <main class="flex flex-row gap-6 max-h-screen overflow-hidden max-sm:flex-col">
 
-        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md min-h-screen flex flex-col  transition-colors duration-500">
+        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md min-h-screen flex flex-col max-sm:hidden transition-colors duration-500">
             <div class="py-6 px-6 justify-start flex items-center flex-row">
                 <div class="rounded-full py-2 px-1 flex items-center justify-center">
                     <i class="fas fa-user-circle text-white text-2xl"></i>
                 </div>
                 <h2 class="font-['Poppins'] text-lg text-white font-regular ml-2">
-                    
                     <?= htmlspecialchars($empresa_nome); ?>
                 </h2>
             </div>
 
-            <nav class="flex flex-col pt-4 pb-12 h-full items-center overflow-y-auto justify-between max-sm:hidden">
+            <nav class="flex flex-col pt-4 pb-12 h-full items-center overflow-y-auto justify-between">
                 <div class="pb-4 gap-8 flex px-4 items-center w-full">
                     <ul class="flex flex-col gap-4 w-full">
                         <li>
