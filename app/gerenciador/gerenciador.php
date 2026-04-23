@@ -199,7 +199,7 @@ foreach ($dados_trimestrais as $trimestre) {
 
     <main class="flex flex-row gap-6 max-h-screen overflow-hidden max-sm:flex-col">
 
-        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md min-h-screen flex flex-col max-sm:hidden transition-colors duration-500">
+        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md min-h-screen flex flex-col  transition-colors duration-500">
             <div class="py-6 px-6 justify-start flex items-center flex-row">
                 <div class="rounded-full py-2 px-1 flex items-center justify-center">
                     <i class="fas fa-user-circle text-white text-2xl"></i>
