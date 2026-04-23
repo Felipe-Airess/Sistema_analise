@@ -215,7 +215,7 @@ foreach ($dados_trimestrais as $trimestre) {
                 <div class="pb-4 gap-8 flex px-4 items-center w-full">
                     <ul class="flex flex-col gap-4 w-full">
                         <li>
-                            <a href="../gerenciador.php"
+                            <a href="gerenciador.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] hover:bg-white/10 dark:hover:bg-gray-800 w-full p-2 rounded-lg transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-home w-5 h-5"></i>
                                 Inicio
@@ -223,7 +223,7 @@ foreach ($dados_trimestrais as $trimestre) {
                         </li>
 
                         <li>
-                            <a href="../despesas/gerenciar_despesas.php"
+                            <a href="despesas/gerenciar_despesas.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-arrow-down w-5 h-5"></i>
                                 Despesas
@@ -231,7 +231,7 @@ foreach ($dados_trimestrais as $trimestre) {
                         </li>
 
                         <li>
-                            <a href="../receitas/gerenciar_receitas.php"
+                            <a href="receitas/gerenciar_receitas.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-arrow-up w-5 h-5"></i>
                                 Receitas
@@ -239,7 +239,7 @@ foreach ($dados_trimestrais as $trimestre) {
                         </li>
 
                         <li>
-                            <a href="../categorias/gerenciar_categorias.php"
+                            <a href="categorias/gerenciar_categorias.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-tags w-5 h-5"></i>
                                 Categorias
@@ -247,7 +247,7 @@ foreach ($dados_trimestrais as $trimestre) {
                         </li>
 
                         <li>
-                            <a href="gerenciar_metas.php"
+                            <a href="/metas/gerenciar_metas.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-bullseye w-5 h-5"></i>
                                 Metas
