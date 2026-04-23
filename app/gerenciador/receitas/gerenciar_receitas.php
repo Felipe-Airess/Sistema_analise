@@ -113,8 +113,7 @@ $total_receitas = $stmt->fetchColumn() ?? 0;
 
 <body class="flex min-h-screen flex-col bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
     <main class="flex flex-row gap-6 max-h-screen max-sm:flex-col">
-        <aside
-            class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md max-h-screen flex flex-col max-sm:w-full max-sm:h-auto max-sm:flex-row transition-colors duration-500">
+        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md h-screen flex flex-col max-sm:w-full max-sm:h-auto max-sm:flex-row transition-colors duration-500">
             <div class="py-6 px-6 justify-start flex items-center flex-row">
                 <div class="rounded-full py-2 px-1 flex items-center justify-center">
                     <i class="fas fa-user-circle text-white text-2xl"></i>
