@@ -125,6 +125,7 @@ try {
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -132,6 +133,7 @@ try {
     </script>
 
     <style>
+        [x-cloak] { display: none !important; }
         body {
             font-family: 'Poppins', sans-serif;
         }
@@ -215,36 +217,51 @@ try {
                 </div>
             </nav>
 
-            <nav class="sm:hidden flex flex-row items-center justify-between w-full text-sm text-white font-['Poppins'] px-4 relative">
-                <button id="menuToggleMobile" class="p-2 flex items-center gap-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg transition-all z-50">
-                    <i class="fas fa-bars text-lg"></i>
-                    <span class="text-sm">Menu</span>
+            <div x-data="{ open: false }" class="sm:hidden" x-cloak>
+                <button @click="open = true" class="fixed bottom-6 right-6 z-40 w-14 h-14 flex items-center justify-center rounded-full bg-[#004b8d] text-white shadow-lg hover:bg-[#003d6b] transition-all">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
-                
-                <div id="mobileMenuDropdown" class="hidden absolute top-full left-0 right-0 bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg z-40 flex flex-col min-w-full">
-                    <a href="../gerenciador.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                        <i class="fas fa-home"></i> Inicio
-                    </a>
-                    <a href="../despesas/gerenciar_despesas.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                        <i class="fas fa-arrow-down"></i> Despesas
-                    </a>
-                    <a href="../receitas/gerenciar_receitas.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                        <i class="fas fa-arrow-up"></i> Receitas
-                    </a>
-                    <a href="../categorias/gerenciar_categorias.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                        <i class="fas fa-tags"></i> Categorias
-                    </a>
-                    <a href="gerenciar_metas.php" class="p-3 flex items-center gap-2 border-b border-white/10 <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                        <i class="fas fa-bullseye"></i> Metas
-                    </a>
-                    <button id="openSettingsModalSm" class="p-3 flex items-center gap-2 border-b border-white/10 hover:bg-white/10 text-left w-full">
-                        <i class="fas fa-cog"></i> Configurações
-                    </button>
-                    <a href="../../login/logout.php" class="p-3 flex items-center gap-2 hover:bg-red-600">
-                        <i class="fas fa-sign-out-alt"></i> Sair
-                    </a>
+
+                <div x-show="open" @click="open = false" class="fixed inset-0 z-30 flex">
+                    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+                    <aside x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" class="relative w-64 h-full bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg flex flex-col">
+                        <div class="p-4 border-b border-white/10 flex items-center justify-between">
+                            <span class="text-lg font-semibold text-white">Menu</span>
+                            <button @click="open = false" class="text-white hover:bg-white/10 p-2 rounded-lg transition-colors">
+                                <i class="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+
+                        <nav class="flex-1 overflow-y-auto flex flex-col gap-2 p-4">
+                            <a href="../gerenciador.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                                <i class="fas fa-home"></i> Inicio
+                            </a>
+                            <a href="../despesas/gerenciar_despesas.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                                <i class="fas fa-arrow-down"></i> Despesas
+                            </a>
+                            <a href="../receitas/gerenciar_receitas.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                                <i class="fas fa-arrow-up"></i> Receitas
+                            </a>
+                            <a href="../categorias/gerenciar_categorias.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                                <i class="fas fa-tags"></i> Categorias
+                            </a>
+                            <a href="gerenciar_metas.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
+                                <i class="fas fa-bullseye"></i> Metas
+                            </a>
+                            <button id="openSettingsModalSm" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg hover:bg-white/10 transition-colors text-left w-full">
+                                <i class="fas fa-cog"></i> Configurações
+                            </button>
+                        </nav>
+
+                        <div class="border-t border-white/10 p-4">
+                            <a href="../../login/logout.php" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg hover:bg-red-600 transition-colors w-full">
+                                <i class="fas fa-sign-out-alt"></i> Sair
+                            </a>
+                        </div>
+                    </aside>
                 </div>
-            </nav>
+            </div>
         </aside>
 
 
