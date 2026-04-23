@@ -384,35 +384,35 @@ $total_despesas = $stmt->fetchColumn() ?? 0;
 
                     <!-- Navigation -->
                     <nav class="flex flex-col gap-0.5 p-4 flex-1 overflow-y-auto">
-                        <a href="gerenciador.php" @click="open = false"
+                        <a href="../gerenciador.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-home text-base shrink-0"></i>
                             Inicio
                         </a>
 
-                        <a href="../gerenciador/despesas/gerenciar_despesas.php" @click="open = false"
+                        <a href="../despesas/gerenciar_despesas.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-arrow-down text-base shrink-0"></i>
                             Despesas
                         </a>
 
-                        <a href="../gerenciador/receitas/gerenciar_receitas.php" @click="open = false"
+                        <a href="../receitas/gerenciar_receitas.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-arrow-up text-base shrink-0"></i>
                             Receitas
                         </a>
 
-                        <a href="../gerenciador/categorias/gerenciar_categorias.php" @click="open = false"
+                        <a href="../categorias/gerenciar_categorias.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-tags text-base shrink-0"></i>
                             Categorias
                         </a>
 
-                        <a href="../gerenciador/metas/gerenciar_metas.php" @click="open = false"
+                        <a href="../metas/gerenciar_metas.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-bullseye text-base shrink-0"></i>

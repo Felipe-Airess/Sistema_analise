@@ -117,7 +117,8 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metas Financeiras</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzAwNGI4ZCIvPgo8cGF0aCBkPSJNMTYgMTBWNiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTIyIDE2SDEwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTYgMjZWMjIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0yNiAxNkgyMiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTE2IDZMMjIgMTZIMTBMMTYgNloiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuOCIvPgo8cGF0aCBkPSJNMTYgMjZMMjIgMTZIMTBMMTYgMjZaIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjYiLz4KPHBhdGggZD0iTTYgMTZIMiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzAwNGI4ZCIvPgo8cGF0aCBkPSJNMTYgMTBWNiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTIyIDE2SDEwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTYgMjZWMjIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0yNiAxNkgyMiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTE2IDZMMjIgMTZIMTBMMTYgNloiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuOCIvPgo8cGF0aCBkPSJNMTYgMjZMMjIgMTZIMTBMMTYgMjZaIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjYiLz4KPHBhdGggZD0iTTYgMTZIMiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -133,7 +134,10 @@ try {
     </script>
 
     <style>
-        [x-cloak] { display: none !important; }
+        [x-cloak] {
+            display: none !important;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
         }
@@ -144,13 +148,14 @@ try {
 <body class="flex min-h-screen flex-col bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
 
     <main class="flex flex-row gap-6 min-h-screen max-sm:flex-col">
-        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md max-h-screen flex flex-col max-sm:w-full max-sm:h-auto max-sm:flex-row transition-colors duration-500">
+        <aside
+            class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md max-h-screen flex flex-col max-sm:w-full max-sm:h-auto max-sm:flex-row transition-colors duration-500">
             <div class="py-6 px-6 justify-start flex items-center flex-row">
                 <div class="rounded-full py-2 px-1 flex items-center justify-center">
                     <i class="fas fa-user-circle text-white text-2xl"></i>
                 </div>
                 <h2 class="font-['Poppins'] text-lg text-white font-regular ml-2">
-                    
+
                     <?= htmlspecialchars($empresa_nome); ?>
                 </h2>
             </div>
@@ -217,56 +222,13 @@ try {
                 </div>
             </nav>
 
-            <div x-data="{ open: false }" class="sm:hidden" x-cloak>
-                <button @click="open = true" class="fixed bottom-6 right-6 z-40 w-14 h-14 flex items-center justify-center rounded-full bg-[#004b8d] text-white shadow-lg hover:bg-[#003d6b] transition-all">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-
-                <div x-show="open" @click="open = false" class="fixed inset-0 z-30 flex">
-                    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-
-                    <aside x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" class="relative w-64 h-full bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg flex flex-col">
-                        <div class="p-4 border-b border-white/10 flex items-center justify-between">
-                            <span class="text-lg font-semibold text-white">Menu</span>
-                            <button @click="open = false" class="text-white hover:bg-white/10 p-2 rounded-lg transition-colors">
-                                <i class="fas fa-times text-xl"></i>
-                            </button>
-                        </div>
-
-                        <nav class="flex-1 overflow-y-auto flex flex-col gap-2 p-4">
-                            <a href="../gerenciador.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                                <i class="fas fa-home"></i> Inicio
-                            </a>
-                            <a href="../despesas/gerenciar_despesas.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                                <i class="fas fa-arrow-down"></i> Despesas
-                            </a>
-                            <a href="../receitas/gerenciar_receitas.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                                <i class="fas fa-arrow-up"></i> Receitas
-                            </a>
-                            <a href="../categorias/gerenciar_categorias.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                                <i class="fas fa-tags"></i> Categorias
-                            </a>
-                            <a href="gerenciar_metas.php" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg transition-colors <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'bg-white/20' : 'hover:bg-white/10' ?>">
-                                <i class="fas fa-bullseye"></i> Metas
-                            </a>
-                            <button id="openSettingsModalSm" @click="open = false" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg hover:bg-white/10 transition-colors text-left w-full">
-                                <i class="fas fa-cog"></i> Configurações
-                            </button>
-                        </nav>
-
-                        <div class="border-t border-white/10 p-4">
-                            <a href="../../login/logout.php" class="p-3 flex items-center gap-2 text-white font-['Poppins'] rounded-lg hover:bg-red-600 transition-colors w-full">
-                                <i class="fas fa-sign-out-alt"></i> Sair
-                            </a>
-                        </div>
-                    </aside>
-                </div>
-            </div>
+            
         </aside>
 
 
         <div class="slide flex-1 flex flex-col max-h-screen p-6 overflow-y-auto">
-            <h1 class="text-3xl font-bold text-[#004b8d] dark:text-gray-100 mb-6 transition-colors duration-500 flex items-center gap-2">
+            <h1
+                class="text-3xl font-bold text-[#004b8d] dark:text-gray-100 mb-6 transition-colors duration-500 flex items-center gap-2">
                 <i class="fas fa-bullseye text-blue-500"></i>
                 Gerenciamento de Metas
             </h1>
@@ -282,7 +244,8 @@ try {
 
 
             <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl mb-8 transition-colors duration-500">
-                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4 border-b pb-2 flex items-center gap-2">
+                <h2
+                    class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4 border-b pb-2 flex items-center gap-2">
                     <i class="fas fa-plus-circle text-green-500"></i>
                     Definir Nova Meta
                 </h2>
@@ -290,7 +253,8 @@ try {
                     <input type="hidden" name="adicionar_meta" value="1">
 
                     <div>
-                        <label for="descricao" class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                        <label for="descricao"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
                             <i class="fas fa-align-left text-gray-500"></i>
                             Descrição
                         </label>
@@ -299,7 +263,8 @@ try {
                     </div>
 
                     <div>
-                        <label for="tipo" class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                        <label for="tipo"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
                             <i class="fas fa-chart-line text-gray-500"></i>
                             Tipo da Meta
                         </label>
@@ -312,7 +277,8 @@ try {
                     </div>
 
                     <div>
-                        <label for="valor_meta" class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                        <label for="valor_meta"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
                             <i class="fas fa-dollar-sign text-gray-500"></i>
                             Valor Meta (R$)
                         </label>
@@ -321,7 +287,8 @@ try {
                     </div>
 
                     <div>
-                        <label for="data_inicio" class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                        <label for="data_inicio"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
                             <i class="fas fa-calendar-alt text-gray-500"></i>
                             Data de Início
                         </label>
@@ -330,7 +297,8 @@ try {
                     </div>
 
                     <div>
-                        <label for="data_fim" class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                        <label for="data_fim"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
                             <i class="fas fa-calendar-check text-gray-500"></i>
                             Data Final
                         </label>
@@ -339,7 +307,8 @@ try {
                     </div>
 
                     <div>
-                        <label for="cor" class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                        <label for="cor"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
                             <i class="fas fa-palette text-gray-500"></i>
                             Cor
                         </label>
@@ -349,7 +318,8 @@ try {
 
 
                     <div class="md:col-span-3 pt-4 flex justify-end">
-                        <button type="submit" class="px-6 py-2 bg-[#004b8d] text-white font-semibold rounded-lg hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 transition-colors shadow-md flex items-center gap-2">
+                        <button type="submit"
+                            class="px-6 py-2 bg-[#004b8d] text-white font-semibold rounded-lg hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 transition-colors shadow-md flex items-center gap-2">
                             <i class="fas fa-save"></i>
                             Salvar Meta
                         </button>
@@ -358,7 +328,8 @@ try {
             </div>
 
 
-            <h2 class="text-2xl font-bold text-[#004b8d] dark:text-gray-100 mb-4 transition-colors duration-500 flex items-center gap-2">
+            <h2
+                class="text-2xl font-bold text-[#004b8d] dark:text-gray-100 mb-4 transition-colors duration-500 flex items-center gap-2">
                 <i class="fas fa-list-check text-blue-500"></i>
                 Metas Ativas
             </h2>
@@ -367,7 +338,8 @@ try {
                 <?php if (empty($metas)): ?>
                     <div class="md:col-span-3 text-center py-8">
                         <i class="fas fa-inbox text-4xl text-gray-300 dark:text-gray-600 mb-3"></i>
-                        <p class="text-gray-500 dark:text-gray-400">Nenhuma meta definida ainda. Crie uma acima para começar a monitorar!</p>
+                        <p class="text-gray-500 dark:text-gray-400">Nenhuma meta definida ainda. Crie uma acima para começar
+                            a monitorar!</p>
                     </div>
                 <?php else: ?>
                     <?php foreach ($metas as $meta):
@@ -405,8 +377,10 @@ try {
                                         <i class="fas fa-chart-bar"></i>
                                         Progresso: **<?= $meta['progresso_percentual']; ?>%**
                                     </span>
-                                    <span class="<?= ($meta['progresso_percentual'] >= 100 && $meta['tipo'] !== 'despesa') ? 'text-green-500' : ($meta['tipo'] === 'despesa' && $meta['progresso_percentual'] > 100 ? 'text-red-500' : 'text-gray-500 dark:text-gray-400') ?> flex items-center gap-1">
-                                        <i class="fas <?= ($meta['progresso_percentual'] >= 100 && $meta['tipo'] !== 'despesa') ? 'fa-check-circle' : ($meta['tipo'] === 'despesa' && $meta['progresso_percentual'] > 100 ? 'fa-exclamation-triangle' : 'fa-clock') ?>"></i>
+                                    <span
+                                        class="<?= ($meta['progresso_percentual'] >= 100 && $meta['tipo'] !== 'despesa') ? 'text-green-500' : ($meta['tipo'] === 'despesa' && $meta['progresso_percentual'] > 100 ? 'text-red-500' : 'text-gray-500 dark:text-gray-400') ?> flex items-center gap-1">
+                                        <i
+                                            class="fas <?= ($meta['progresso_percentual'] >= 100 && $meta['tipo'] !== 'despesa') ? 'fa-check-circle' : ($meta['tipo'] === 'despesa' && $meta['progresso_percentual'] > 100 ? 'fa-exclamation-triangle' : 'fa-clock') ?>"></i>
                                         <?= $meta['status_text'] ?>
                                     </span>
                                 </div>
@@ -422,7 +396,8 @@ try {
                                     <i class="fas fa-flag text-gray-400"></i>
                                     Meta:
                                 </div>
-                                <div class="font-bold text-right text-gray-800 dark:text-gray-100 flex items-center gap-1 justify-end">
+                                <div
+                                    class="font-bold text-right text-gray-800 dark:text-gray-100 flex items-center gap-1 justify-end">
                                     <i class="fas fa-dollar-sign text-green-500"></i>
                                     R$ <?= $valor_meta_f ?>
                                 </div>
@@ -431,7 +406,8 @@ try {
                                     <i class="fas fa-chart-line text-gray-400"></i>
                                     Realizado:
                                 </div>
-                                <div class="font-bold text-right text-lg <?= ($meta['tipo'] === 'despesa' && $meta['valor_atual'] > $meta['valor_meta']) ? 'text-red-500' : 'text-[#004b8d] dark:text-blue-400' ?> flex items-center gap-1 justify-end">
+                                <div
+                                    class="font-bold text-right text-lg <?= ($meta['tipo'] === 'despesa' && $meta['valor_atual'] > $meta['valor_meta']) ? 'text-red-500' : 'text-[#004b8d] dark:text-blue-400' ?> flex items-center gap-1 justify-end">
                                     <i class="fas fa-dollar-sign"></i>
                                     R$ <?= $valor_atual_f ?>
                                 </div>
@@ -457,15 +433,18 @@ try {
     </main>
 
 
-    <div id="settingsModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center z-50 transition-opacity duration-300 dark:bg-gray-900 dark:bg-opacity-75">
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-11/12 md:max-w-lg mx-auto p-6 transition-transform transform duration-300">
+    <div id="settingsModal"
+        class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center z-50 transition-opacity duration-300 dark:bg-gray-900 dark:bg-opacity-75">
+        <div
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-11/12 md:max-w-lg mx-auto p-6 transition-transform transform duration-300">
 
             <div class="flex justify-between items-center mb-6 border-b pb-3 border-gray-200 dark:border-gray-700">
                 <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
                     <i class="fas fa-cog text-blue-500"></i>
                     Configurações
                 </h3>
-                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                <button id="closeModalBtn"
+                    class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                     <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
@@ -476,7 +455,8 @@ try {
                     <span class="text-gray-700 dark:text-gray-100 font-semibold">Tema da Aplicação</span>
                 </div>
 
-                <button id="themeToggle" class="flex items-center gap-2 px-4 py-2 rounded-full font-['Poppins'] transition-all text-sm bg-gray-200 dark:bg-[#004b8d] text-gray-700 dark:text-white hover:opacity-90">
+                <button id="themeToggle"
+                    class="flex items-center gap-2 px-4 py-2 rounded-full font-['Poppins'] transition-all text-sm bg-gray-200 dark:bg-[#004b8d] text-gray-700 dark:text-white hover:opacity-90">
                     <i id="moonIcon" class="fas fa-moon hidden"></i>
                     <i id="sunIcon" class="fas fa-sun"></i>
                     <span id="themeText">Claro</span>
@@ -528,35 +508,35 @@ try {
 
                     <!-- Navigation -->
                     <nav class="flex flex-col gap-0.5 p-4 flex-1 overflow-y-auto">
-                        <a href="gerenciador.php" @click="open = false"
+                        <a href="../gerenciador.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-home text-base shrink-0"></i>
                             Inicio
                         </a>
 
-                        <a href="../gerenciador/despesas/gerenciar_despesas.php" @click="open = false"
+                        <a href="../despesas/gerenciar_despesas.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-arrow-down text-base shrink-0"></i>
                             Despesas
                         </a>
 
-                        <a href="../gerenciador/receitas/gerenciar_receitas.php" @click="open = false"
+                        <a href="../receitas/gerenciar_receitas.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-arrow-up text-base shrink-0"></i>
                             Receitas
                         </a>
 
-                        <a href="../gerenciador/categorias/gerenciar_categorias.php" @click="open = false"
+                        <a href="../categorias/gerenciar_categorias.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-tags text-base shrink-0"></i>
                             Categorias
                         </a>
 
-                        <a href="../gerenciador/metas/gerenciar_metas.php" @click="open = false"
+                        <a href="../metas/gerenciar_metas.php" @click="open = false"
                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
                                   <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                             <i class="fas fa-bullseye text-base shrink-0"></i>
@@ -625,31 +605,32 @@ try {
             }
         });
 
-    // Menu Mobile Toggle
-    const menuToggleMobile = document.getElementById('menuToggleMobile');
-    const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+        // Menu Mobile Toggle
+        const menuToggleMobile = document.getElementById('menuToggleMobile');
+        const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
 
-    if (menuToggleMobile) {
-        menuToggleMobile.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mobileMenuDropdown.classList.toggle('hidden');
-        });
-
-        // Fechar menu ao clicar em um link
-        const menuLinks = mobileMenuDropdown.querySelectorAll('a, button');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuDropdown.classList.add('hidden');
+        if (menuToggleMobile) {
+            menuToggleMobile.addEventListener('click', function (e) {
+                e.stopPropagation();
+                mobileMenuDropdown.classList.toggle('hidden');
             });
-        });
 
-        // Fechar menu ao clicar fora
-        document.addEventListener('click', function(e) {
-            if (!mobileMenuDropdown.contains(e.target) && !menuToggleMobile.contains(e.target)) {
-                mobileMenuDropdown.classList.add('hidden');
-            }
-        });
-    }
+            // Fechar menu ao clicar em um link
+            const menuLinks = mobileMenuDropdown.querySelectorAll('a, button');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenuDropdown.classList.add('hidden');
+                });
+            });
+
+            // Fechar menu ao clicar fora
+            document.addEventListener('click', function (e) {
+                if (!mobileMenuDropdown.contains(e.target) && !menuToggleMobile.contains(e.target)) {
+                    mobileMenuDropdown.classList.add('hidden');
+                }
+            });
+        }
     </script>
 </body>
+
 </html>
