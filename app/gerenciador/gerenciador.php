@@ -87,32 +87,22 @@ $categorias_mais_lucrativas = $stmt->fetchAll();
 
 $lucros_mes_sql = "SELECT 
     MONTH(r.data) AS mes,
-    SUM(r.valor) AS total_receitas,
-    COALESCE((
+    SUM(r.valor) - COALESCE((
         SELECT SUM(d.valor) 
         FROM despesas d 
-        WHERE d.empresa_id = ?
+        WHERE d.empresa_id = r.empresa_id 
         AND MONTH(d.data) = MONTH(r.data)
-        AND YEAR(d.data) = YEAR(r.data)
-    ), 0) AS total_despesas
+    ), 0) AS lucro
 FROM receitas r
 WHERE r.empresa_id = ?
-AND YEAR(r.data) = YEAR(CURDATE())
 GROUP BY MONTH(r.data)
 ORDER BY mes
-LIMIT 12";
+LIMIT 12;
 
+";
 $stmt = $pdo->prepare($lucros_mes_sql);
-$stmt->execute([$empresa_id, $empresa_id]);
+$stmt->execute([$empresa_id]);
 $lucros_por_mes = $stmt->fetchAll();
-
-$meses_lucro = [];
-$valores_lucro = [];
-
-foreach ($lucros_por_mes as $lucro) {
-    $meses_lucro[] = $meses_nomes[$lucro['mes'] - 1];
-    $valores_lucro[] = floatval($lucro['total_receitas']) - floatval($lucro['total_despesas']);
-}
 
 $meses_lucro = [];
 $valores_lucro = [];
@@ -140,7 +130,7 @@ $lucro_trimestral_sql = "SELECT
     SUM(r.valor) - COALESCE((
         SELECT SUM(d.valor) 
         FROM despesas d 
-        WHERE d.empresa_id = ?
+        WHERE d.empresa_id = r.empresa_id 
         AND QUARTER(d.data) = QUARTER(r.data)
         AND YEAR(d.data) = YEAR(r.data)
     ), 0) AS lucro
@@ -151,7 +141,8 @@ ORDER BY ano DESC, trimestre DESC
 LIMIT 4";
 
 $stmt = $pdo->prepare($lucro_trimestral_sql);
-$stmt->execute([$empresa_id, $empresa_id]);
+$stmt->execute([$empresa_id]);
+$dados_trimestrais = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 $trimestres = [];
