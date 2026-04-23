@@ -111,7 +111,7 @@ $total_despesas = $stmt->fetchColumn() ?? 0;
 
 <body class="flex min-h-screen flex-col bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
     <main class="flex flex-row gap-6 max-h-screen max-sm:flex-col">
-        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md h-screen flex flex-col max-sm:w-full max-sm:h-full max-sm:flex-row transition-colors duration-500">
+        <aside class="w-48 bg-[#004b8d] dark:bg-gray-900 shadow-md h-screen flex flex-col max-sm:w-full max-sm:h-auto max-sm:flex-row transition-colors duration-500">
             <div class="py-6 px-6 justify-start flex items-center flex-row">
                 <div class="rounded-full py-2 px-1 flex items-center justify-center">
                     <i class="fas fa-user-circle text-white text-2xl"></i>
@@ -185,99 +185,9 @@ $total_despesas = $stmt->fetchColumn() ?? 0;
             </nav>
         </aside>
 
-        <!-- Menu Flutuante Mobile com Alpine.js -->
-        <div x-data="{ open: false }" class="sm:hidden" x-cloak>
-            <!-- Botão Flutuante -->
-            <button @click="open = true"
-                    class="fixed bottom-6 right-6 z-40 w-14 h-14 shrink-0 rounded-full
-                           bg-[#004b8d] text-white shadow-2xl shadow-blue-900/40
-                           hover:bg-[#003d73] hover:scale-110 active:scale-95
-                           transition-all flex items-center justify-center focus:outline-none">
-                <i class="fas fa-bars text-xl leading-none"></i>
-            </button>
+        
 
-            <!-- Backdrop e Drawer -->
-            <div x-show="open" x-cloak
-                 x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="opacity-0"
-                 x-transition:enter-end="opacity-100"
-                 x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="opacity-100"
-                 x-transition:leave-end="opacity-0"
-                 class="fixed inset-0 z-30 flex">
-
-                <div @click="open = false" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-
-                <aside x-show="open"
-                       x-transition:enter="transition ease-out duration-200"
-                       x-transition:enter-start="-translate-x-full"
-                       x-transition:enter-end="translate-x-0"
-                       x-transition:leave="transition ease-in duration-150"
-                       x-transition:leave-start="translate-x-0"
-                       x-transition:leave-end="-translate-x-full"
-                       class="relative w-64 h-full bg-[#004b8d] dark:bg-gray-900 border-r border-white/10 shadow-2xl z-40 flex flex-col">
-
-                    <!-- Header -->
-                    <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
-                        <span class="font-bold text-xl text-white">
-                            Menu
-                        </span>
-                        <button @click="open = false" class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-
-                    <!-- Navigation -->
-                    <nav class="flex flex-col gap-0.5 p-4 flex-1 overflow-y-auto">
-                        <a href="../gerenciador.php" @click="open = false"
-                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition text-gray-200 hover:text-white hover:bg-white/10">
-                            <i class="fas fa-home text-base shrink-0"></i>
-                            Inicio
-                        </a>
-
-                        <a href="gerenciar_despesas.php" @click="open = false"
-                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition text-white bg-white/20">
-                            <i class="fas fa-arrow-down text-base shrink-0"></i>
-                            Despesas
-                        </a>
-
-                        <a href="../receitas/gerenciar_receitas.php" @click="open = false"
-                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition text-gray-200 hover:text-white hover:bg-white/10">
-                            <i class="fas fa-arrow-up text-base shrink-0"></i>
-                            Receitas
-                        </a>
-
-                        <a href="../categorias/gerenciar_categorias.php" @click="open = false"
-                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition text-gray-200 hover:text-white hover:bg-white/10">
-                            <i class="fas fa-tags text-base shrink-0"></i>
-                            Categorias
-                        </a>
-
-                        <a href="../metas/gerenciar_metas.php" @click="open = false"
-                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition text-gray-200 hover:text-white hover:bg-white/10">
-                            <i class="fas fa-bullseye text-base shrink-0"></i>
-                            Metas
-                        </a>
-
-                        <button id="openSettingsModalSm" @click="open = false"
-                                class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-200 hover:text-white hover:bg-white/10 transition w-full text-left">
-                            <i class="fas fa-cog text-base shrink-0"></i>
-                            Configurações
-                        </button>
-
-                        <div class="my-4 pt-4 border-t border-white/10"></div>
-
-                        <a href="../../login/logout.php" @click="open = false"
-                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-red-300 hover:text-white hover:bg-red-900/20 transition">
-                            <i class="fas fa-sign-out-alt text-base shrink-0"></i>
-                            Sair
-                        </a>
-                    </nav>
-                </aside>
-            </div>
-        </div>
-
-        <div class="flex-1 flex-col p-6 overflow-y-auto max-h-screen">
+        <div class="flex flex-1 flex-col p-6 overflow-y-auto max-h-screen">
             <div class="flex flex-row justify-between items-center flex-wrap">
                 <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 max-sm:text-xl max-sm:mb-3 transition-colors duration-500 flex items-center gap-2">
                     <i class="fas fa-arrow-down text-red-500"></i>
@@ -431,6 +341,99 @@ $total_despesas = $stmt->fetchColumn() ?? 0;
 
         </div>
     </div>
+    <div x-data="{ open: false }" class="sm:hidden" x-cloak>
+            <!-- Botão Flutuante -->
+            <button @click="open = true"
+                    class="fixed bottom-6 right-6 z-40 w-14 h-14 shrink-0 rounded-full
+                           bg-[#004b8d] text-white shadow-2xl shadow-blue-900/40
+                           hover:bg-[#003d73] hover:scale-110 active:scale-95
+                           transition-all flex items-center justify-center focus:outline-none">
+                <i class="fas fa-bars text-xl leading-none"></i>
+            </button>
+
+            <!-- Backdrop e Drawer -->
+            <div x-show="open" x-cloak
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"
+                 class="fixed inset-0 z-30 flex">
+
+                <div @click="open = false" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+                <aside x-show="open"
+                       x-transition:enter="transition ease-out duration-200"
+                       x-transition:enter-start="-translate-x-full"
+                       x-transition:enter-end="translate-x-0"
+                       x-transition:leave="transition ease-in duration-150"
+                       x-transition:leave-start="translate-x-0"
+                       x-transition:leave-end="-translate-x-full"
+                       class="relative w-64 h-full bg-[#004b8d] dark:bg-gray-900 border-r border-white/10 shadow-2xl z-40 flex flex-col">
+
+                    <!-- Header -->
+                    <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+                        <span class="font-bold text-xl text-white">
+                            Menu
+                        </span>
+                        <button @click="open = false" class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <!-- Navigation -->
+                    <nav class="flex flex-col gap-0.5 p-4 flex-1 overflow-y-auto">
+                        <a href="gerenciador.php" @click="open = false"
+                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
+                                  <?= basename($_SERVER['PHP_SELF']) == 'gerenciador.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
+                            <i class="fas fa-home text-base shrink-0"></i>
+                            Inicio
+                        </a>
+
+                        <a href="../gerenciador/despesas/gerenciar_despesas.php" @click="open = false"
+                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
+                                  <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_despesas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
+                            <i class="fas fa-arrow-down text-base shrink-0"></i>
+                            Despesas
+                        </a>
+
+                        <a href="../gerenciador/receitas/gerenciar_receitas.php" @click="open = false"
+                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
+                                  <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
+                            <i class="fas fa-arrow-up text-base shrink-0"></i>
+                            Receitas
+                        </a>
+
+                        <a href="../gerenciador/categorias/gerenciar_categorias.php" @click="open = false"
+                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
+                                  <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_categorias.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
+                            <i class="fas fa-tags text-base shrink-0"></i>
+                            Categorias
+                        </a>
+
+                        <a href="../gerenciador/metas/gerenciar_metas.php" @click="open = false"
+                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition
+                                  <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
+                            <i class="fas fa-bullseye text-base shrink-0"></i>
+                            Metas
+                        </a>
+
+                        <button id="openSettingsModalSm" @click="open = false" class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-200 hover:text-white hover:bg-white/10 transition w-full text-left">
+    <i class="fas fa-cog text-base shrink-0"></i> Configurações
+</button>
+
+                        <div class="my-4 pt-4 border-t border-white/10"></div>
+
+                        <a href="../login/logout.php" @click="open = false"
+                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-red-300 hover:text-white hover:bg-red-900/20 transition">
+                            <i class="fas fa-sign-out-alt text-base shrink-0"></i>
+                            Sair
+                        </a>
+                    </nav>
+                </aside>
+            </div>
+        </div>
     <script src="../../assets/js/darkmode.js"></script>
     <script src="../../assets/js/despesas_listJS.js"></script>
     <script>
@@ -481,30 +484,7 @@ $total_despesas = $stmt->fetchColumn() ?? 0;
         });
 
     // Menu Mobile Toggle
-    const menuToggleMobile = document.getElementById('menuToggleMobile');
-    const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
-
-    if (menuToggleMobile) {
-        menuToggleMobile.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mobileMenuDropdown.classList.toggle('hidden');
-        });
-
-        // Fechar menu ao clicar em um link
-        const menuLinks = mobileMenuDropdown.querySelectorAll('a, button');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuDropdown.classList.add('hidden');
-            });
-        });
-
-        // Fechar menu ao clicar fora
-        document.addEventListener('click', function(e) {
-            if (!mobileMenuDropdown.contains(e.target) && !menuToggleMobile.contains(e.target)) {
-                mobileMenuDropdown.classList.add('hidden');
-            }
-        });
-    }
+    
     </script>
 </body>
 
