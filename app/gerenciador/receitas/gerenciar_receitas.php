@@ -144,7 +144,7 @@ $total_receitas = $stmt->fetchColumn() ?? 0;
                         </li>
 
                         <li>
-                            <a href="../receitas/gerenciar_receitas.php"
+                            <a href="gerenciar_receitas.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_receitas.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-arrow-up w-5 h-5"></i>
                                 Receitas
@@ -160,7 +160,7 @@ $total_receitas = $stmt->fetchColumn() ?? 0;
                         </li>
 
                         <li>
-                            <a href="gerenciar_metas.php"
+                            <a href="../metas/gerenciar_metas.php"
                                 class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'bg-white/20 dark:bg-gray-800' : '' ?>">
                                 <i class="fas fa-bullseye w-5 h-5"></i>
                                 Metas
