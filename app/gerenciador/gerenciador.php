@@ -230,9 +230,10 @@ foreach ($dados_trimestrais as $trimestre) {
                             </a>
                         </li>
                         <li>
-                            <button id="openSettingsModalSm" @click="open = false" class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-200 hover:text-white hover:bg-white/10 transition w-full text-left">
-    <i class="fas fa-cog text-base shrink-0"></i> Configurações
-</button>
+                            <button id="openSettingsModal"
+                                class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all">
+                                <i class="fas fa-cog w-5 h-5"></i> Configs
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -458,7 +459,7 @@ foreach ($dados_trimestrais as $trimestre) {
             </aside>
         </div>
     </div>
-
+    <script src="../assets/js/darkmode.js"></script>                                
     <script>
         window.revelar = ScrollReveal();
         revelar.reveal('.grafico,main aside', {
@@ -607,7 +608,7 @@ foreach ($dados_trimestrais as $trimestre) {
                     }
                 });
                 window.charts.push(comparacaoChart);
-            }
+            
 
             const categoriasData = dadosGraficos.categorias;
             const ctxCategorias = document.getElementById('categoriasLucrativas');
@@ -705,16 +706,6 @@ foreach ($dados_trimestrais as $trimestre) {
             }
         };
 
-        window.addEventListener('load', () => {
-            const isInitialDark = document.documentElement.classList.contains('dark');
-            window.updateChartStyles(isInitialDark);
-        });
-
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            const isDarkMode = e.matches;
-            window.updateChartStyles(isDarkMode);
-        });
-
         document.getElementById('exportar_graficos').addEventListener('click', async () => {
             const canvasIds = ['evolucaoMensal','categoriasLucrativas','lucroMensal','comparacaoReceitasDespesas','lucroTrimestral'];
             const zip = new JSZip();
@@ -756,8 +747,7 @@ foreach ($dados_trimestrais as $trimestre) {
                 console.error('Erro ao gerar ZIP', err);
             }
         });
+                                }
     </script>
-    
-    <script src="../../assets/js/darkmode.js"></script>
 </body>
 </html>
