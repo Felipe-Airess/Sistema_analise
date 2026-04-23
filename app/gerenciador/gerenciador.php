@@ -196,7 +196,7 @@ foreach ($dados_trimestrais as $trimestre) {
                 </h2>
             </div>
 
-            <nav class="flex flex-col pt-4 pb-12 h-full items-center overflow-y-auto justify-between">
+            <nav class="flex flex-col pt-4 pb-12 h-full max-sm:hidden items-center overflow-y-auto justify-between">
                 <div class="pb-4 gap-8 flex px-4 items-center w-full">
                     <ul class="flex flex-col gap-4 w-full">
                         <li>
@@ -447,10 +447,9 @@ foreach ($dados_trimestrais as $trimestre) {
                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition <?= basename($_SERVER['PHP_SELF']) == 'gerenciar_metas.php' ? 'text-white bg-white/20' : 'text-gray-200 hover:text-white hover:bg-white/10' ?>">
                         <i class="fas fa-bullseye text-base shrink-0"></i> Metas
                     </a>
-                    <button id="openSettingsModalSm" @click="open = false"
-                       class="flex items-center gap-3 px-4 py-3 w-full text-left rounded-lg text-sm font-semibold text-gray-200 hover:text-white hover:bg-white/10 transition">
-                        <i class="fas fa-cog text-base shrink-0"></i> Configurações
-                    </button>
+                    <button id="openSettingsModalSm" @click="open = false" class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-200 hover:text-white hover:bg-white/10 transition w-full text-left">
+    <i class="fas fa-cog text-base shrink-0"></i> Configurações
+</button>
                 </nav>
                 <div class="p-4 border-t border-white/10">
                     <a href="../login/logout.php" class="flex items-center justify-center gap-2 w-full bg-white/10 hover:bg-white/20 text-white px-4 py-3 rounded-lg font-['Poppins'] transition-all">
