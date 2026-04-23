@@ -16,10 +16,6 @@ INSERT INTO categorias (nome, empresa_id) VALUES ('Lazer', $empresa_id);
 INSERT INTO categorias (nome, empresa_id) VALUES ('Saúde', $empresa_id);
 INSERT INTO categorias (nome, empresa_id) VALUES ('Educação', $empresa_id);
 
--- Vamos pegar os IDs gerados (assumindo a ordem acima para simplificar)
--- 1:Salário, 2:Freelance, 3:Investimentos
--- 4:Moradia, 5:Alimentação, 6:Transporte, 7:Lazer, 8:Saúde, 9:Educação
-
 -- ==========================================
 -- JANEIRO
 -- ==========================================
@@ -107,13 +103,12 @@ INSERT INTO despesas (descricao, valor, data, categoria_id, empresa_id) VALUES
 ('Ifood e Lanches', 280.00, '2024-06-25', 5, $empresa_id);
 
 -- ==========================================
--- INSERIR METAS (Para a tela de metas)
+-- INSERIR METAS (AGORA COM AS COLUNAS CORRETAS)
 -- ==========================================
-INSERT INTO metas (nome, valor_alvo, valor_atual, data_prazo, empresa_id) VALUES 
-('Trocar de Carro', 45000.00, 12500.00, '2025-12-31', $empresa_id),
-('Reserva de Emergência', 15000.00, 8000.00, '2024-12-31', $empresa_id),
-('Viagem Internacional', 8000.00, 2500.00, '2025-07-15', $empresa_id),
-('Comprar Notebook', 6000.00, 4800.00, '2024-10-10', $empresa_id);
+INSERT INTO metas (descricao, tipo, valor_meta, data_inicio, data_fim, cor, empresa_id) VALUES 
+('Atingir Lucro Anual', 'lucro', 25000.00, '2024-01-01', '2024-12-31', '#10B981', $empresa_id),
+('Teto de Despesas Anual', 'despesa', 30000.00, '2024-01-01', '2024-12-31', '#EF4444', $empresa_id),
+('Receitas de Freelance', 'receita', 10000.00, '2024-01-01', '2024-12-31', '#3B82F6', $empresa_id);
 ";
 
 try {
