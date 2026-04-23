@@ -230,10 +230,9 @@ foreach ($dados_trimestrais as $trimestre) {
                             </a>
                         </li>
                         <li>
-                            <button id="openSettingsModal"
-                                class="flex items-center gap-3 text-white hover:white font-['Poppins'] w-full p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-all">
-                                <i class="fas fa-cog w-5 h-5"></i> Configs
-                            </button>
+                            <button id="openSettingsModalSm" @click="open = false" class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-200 hover:text-white hover:bg-white/10 transition w-full text-left">
+    <i class="fas fa-cog text-base shrink-0"></i> Configurações
+</button>
                         </li>
                     </ul>
                 </div>
