@@ -606,30 +606,7 @@ try {
         });
 
         // Menu Mobile Toggle
-        const menuToggleMobile = document.getElementById('menuToggleMobile');
-        const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
-
-        if (menuToggleMobile) {
-            menuToggleMobile.addEventListener('click', function (e) {
-                e.stopPropagation();
-                mobileMenuDropdown.classList.toggle('hidden');
-            });
-
-            // Fechar menu ao clicar em um link
-            const menuLinks = mobileMenuDropdown.querySelectorAll('a, button');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    mobileMenuDropdown.classList.add('hidden');
-                });
-            });
-
-            // Fechar menu ao clicar fora
-            document.addEventListener('click', function (e) {
-                if (!mobileMenuDropdown.contains(e.target) && !menuToggleMobile.contains(e.target)) {
-                    mobileMenuDropdown.classList.add('hidden');
-                }
-            });
-        }
+        
     </script>
 </body>
 
